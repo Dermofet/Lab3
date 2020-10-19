@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-char words_of_string(char string, char sep)
+char *words_of_string(char string, char sep)
 {
     int i;
     char *number_of_words[i][10];
@@ -34,12 +34,12 @@ char LenString(char string, char sep)
 int LenWord (char word)
 {
     int i = 0;
-    while (word)
+    while (word) 
         i++;
     return i;
 }
 
-char max(char string, char sep)
+char *max(char string, char sep)
 {
     int i = 0;
     char *number_of_words[i][10];
@@ -56,10 +56,10 @@ char max(char string, char sep)
     return *max_word, *number_of_words[i][10];
 }
 
-char del(char string, char sep)
+char *del(char string, char sep)
 {
-    char *max_word, *number_of_words = max(string, sep);
-    *max_word = strcpy(*max_word , "");
+    char *max_word, *number_of_words = max(string, sep); 
+    strcpy(*max_word , "");
     return *max_word, *number_of_words;
 }
 
@@ -74,13 +74,11 @@ int main()
     {
         printf("Enter new string\n");
         scanf("%s\n", &string);
-        char *max_word, *number_of_words = del(string, sep);
-	char max_word = *max_word;
-	char number_of_words = *number_of_words;
+        char *max_word, *number_of_words = *del(string, sep);
         int j;
         while (j = 0, j <= LenString(string, sep), j++)
             printf("Modified sentence:");
-            printf(" %s\n", &number_of_words);
+            printf(" %s\n", *number_of_words);       
         i++;
     }
-}
+} 
